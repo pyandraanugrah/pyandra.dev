@@ -19,7 +19,7 @@ export function ContactSection() {
 
           <div className="grid gap-6 md:grid-cols-2">
             {/* Email Card */}
-            <div className="flex flex-col justify-between rounded-lg border border-border bg-surface p-6 sm:p-8 shadow-sm">
+            <div className="flex flex-col justify-between rounded-lg border border-border bg-surface p-5 sm:p-8 shadow-sm">
               <div className="space-y-4">
                 <div className="flex items-center gap-2 text-xs font-mono text-accent">
                   <Mail className="h-4 w-4" />
@@ -29,7 +29,7 @@ export function ContactSection() {
                 <p className="text-sm text-secondary-text leading-relaxed">
                   Direct inquiries regarding software projects, web development, or academic collaboration.
                 </p>
-                <div className="rounded border border-border bg-elevated p-3 font-mono text-sm text-primary-text select-all">
+                <div className="rounded border border-border bg-elevated p-2.5 sm:p-3 font-mono text-xs sm:text-sm text-primary-text select-all break-all overflow-hidden">
                   {profileData.email}
                 </div>
               </div>
@@ -47,7 +47,7 @@ export function ContactSection() {
             </div>
 
             {/* GitHub & Source Card */}
-            <div className="flex flex-col justify-between rounded-lg border border-border bg-surface p-6 sm:p-8 shadow-sm">
+            <div className="flex flex-col justify-between rounded-lg border border-border bg-surface p-5 sm:p-8 shadow-sm">
               <div className="space-y-4">
                 <div className="flex items-center gap-2 text-xs font-mono text-accent">
                   <Github className="h-4 w-4" />
@@ -57,7 +57,7 @@ export function ContactSection() {
                 <p className="text-sm text-secondary-text leading-relaxed">
                   Explore open repositories, code contributions, commits, and experiments.
                 </p>
-                <div className="rounded border border-border bg-elevated p-3 font-mono text-sm text-primary-text select-all">
+                <div className="rounded border border-border bg-elevated p-2.5 sm:p-3 font-mono text-xs sm:text-sm text-primary-text select-all break-all overflow-hidden">
                   {profileData.githubUrl}
                 </div>
               </div>

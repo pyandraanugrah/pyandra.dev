@@ -37,7 +37,7 @@ export function ProjectsSection() {
                 key={project.id}
                 className="flex flex-col justify-between rounded-lg border border-border bg-surface shadow-sm transition-all duration-200 hover:border-secondary-text/30"
               >
-                <div className="p-6 sm:p-7 space-y-5">
+                <div className="p-5 sm:p-7 space-y-4 sm:space-y-5">
                   {/* Header */}
                   <div className="flex items-center justify-between border-b border-border pb-4">
                     <div className="flex items-center gap-2.5">
@@ -54,7 +54,7 @@ export function ProjectsSection() {
                   </div>
 
                   {/* Description */}
-                  <p className="text-sm leading-relaxed text-secondary-text min-h-[4rem]">
+                  <p className="text-sm leading-relaxed text-secondary-text min-h-[3.5rem] sm:min-h-[4rem]">
                     {project.description}
                   </p>
 
@@ -84,7 +84,7 @@ export function ProjectsSection() {
                 </div>
 
                 {/* Action Links */}
-                <div className="flex items-center justify-between border-t border-border bg-elevated/40 p-4 sm:px-6">
+                <div className="flex flex-wrap items-center justify-between gap-2.5 border-t border-border bg-elevated/40 p-3.5 sm:px-6">
                   <Button
                     size="sm"
                     variant="outline"

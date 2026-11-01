@@ -20,12 +20,12 @@ export function Footer() {
             </p>
           </div>
 
-          <div className="flex items-center gap-4 text-xs font-mono text-secondary-text">
-            <span>© {currentYear} {profileData.name}</span>
-            <span>•</span>
+          <div className="flex flex-wrap items-center gap-2 sm:gap-4 text-xs font-mono text-secondary-text">
+            <span className="break-words">© {currentYear} {profileData.name}</span>
+            <span className="hidden sm:inline">•</span>
             <a
               href="#"
-              className="inline-flex items-center gap-1 hover:text-accent transition-colors"
+              className="inline-flex items-center gap-1 hover:text-accent transition-colors ml-auto sm:ml-0"
               aria-label="Back to top"
             >
               <span>TOP</span>

@@ -43,7 +43,7 @@ export const Button = React.forwardRef<
     const sizeStyles = {
       sm: "h-8 px-3 text-xs gap-1.5",
       md: "h-10 px-4 text-sm gap-2",
-      lg: "h-12 px-6 text-base gap-2.5",
+      lg: "h-11 sm:h-12 px-4 sm:px-6 text-sm sm:text-base gap-2 sm:gap-2.5",
     };
 
     const combinedClasses = cn(

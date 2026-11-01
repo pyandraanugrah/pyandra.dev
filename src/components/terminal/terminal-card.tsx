@@ -18,22 +18,22 @@ const INITIAL_LOGS: CommandLog[] = [
     id: "init-1",
     command: "cat profile.json",
     output: (
-      <div className="pl-2 sm:pl-4 text-[#8B949E] space-y-1">
+      <div className="pl-2 sm:pl-4 text-[#8B949E] space-y-1 break-words">
         <p>
           <span className="text-[#79C0FF]">&quot;name&quot;</span>:{" "}
-          <span className="text-[#A5D6FF]">&quot;{profileData.name}&quot;</span>,
+          <span className="text-[#A5D6FF] break-words">&quot;{profileData.name}&quot;</span>,
         </p>
         <p>
           <span className="text-[#79C0FF]">&quot;role&quot;</span>:{" "}
-          <span className="text-[#A5D6FF]">&quot;{profileData.title}&quot;</span>,
+          <span className="text-[#A5D6FF] break-words">&quot;{profileData.title}&quot;</span>,
         </p>
         <p>
           <span className="text-[#79C0FF]">&quot;focus&quot;</span>:{" "}
-          <span className="text-[#A5D6FF]">&quot;{profileData.focus}&quot;</span>,
+          <span className="text-[#A5D6FF] break-words">&quot;{profileData.focus}&quot;</span>,
         </p>
         <p>
           <span className="text-[#79C0FF]">&quot;education&quot;</span>:{" "}
-          <span className="text-[#A5D6FF]">&quot;{profileData.education}&quot;</span>,
+          <span className="text-[#A5D6FF] break-words">&quot;{profileData.education}&quot;</span>,
         </p>
         <p>
           <span className="text-[#79C0FF]">&quot;status&quot;</span>:{" "}
@@ -204,39 +204,43 @@ export function TerminalCard() {
       className="w-full cursor-text overflow-hidden rounded-lg border border-border bg-[#0B0F14] text-[#E6EDF3] shadow-lg font-mono text-xs sm:text-sm"
     >
       {/* Window Titlebar */}
-      <div className="flex items-center justify-between border-b border-[#21262D] bg-[#161B22] px-4 py-2.5">
-        <div className="flex items-center gap-2">
-          <span className="h-3 w-3 rounded-full bg-[#FF5F56]/90" />
-          <span className="h-3 w-3 rounded-full bg-[#FFBD2E]/90" />
-          <span className="h-3 w-3 rounded-full bg-[#27C93F]/90" />
+      <div className="flex items-center justify-between border-b border-[#21262D] bg-[#161B22] px-3 sm:px-4 py-2.5">
+        <div className="flex items-center gap-1.5 sm:gap-2">
+          <span className="h-2.5 w-2.5 sm:h-3 sm:w-3 rounded-full bg-[#FF5F56]/90" />
+          <span className="h-2.5 w-2.5 sm:h-3 sm:w-3 rounded-full bg-[#FFBD2E]/90" />
+          <span className="h-2.5 w-2.5 sm:h-3 sm:w-3 rounded-full bg-[#27C93F]/90" />
         </div>
-        <span className="text-[11px] text-[#8B949E]">bash — pancayandra@dev-log:~</span>
+        <span className="truncate max-w-[150px] sm:max-w-none text-[11px] text-[#8B949E]">
+          bash — pancayandra@dev-log:~
+        </span>
         <div className="flex items-center gap-1">
           <span className="text-[10px] text-[#7EE787]">● interactive</span>
         </div>
       </div>
 
       {/* Terminal Logs View */}
-      <div className="max-h-[340px] overflow-y-auto p-4 sm:p-5 space-y-3 leading-relaxed">
+      <div className="max-h-[300px] sm:max-h-[340px] overflow-y-auto p-3.5 sm:p-5 space-y-3 leading-relaxed break-words">
         {logs.map((log) => (
-          <div key={log.id} className="space-y-1.5">
-            <div className="flex items-center gap-1">
-              <span className="text-[#7EE787]">pancayandra@dev-log</span>
+          <div key={log.id} className="space-y-1.5 min-w-0">
+            <div className="flex flex-wrap items-center gap-1 min-w-0">
+              <span className="text-[#7EE787] hidden sm:inline">pancayandra@dev-log</span>
+              <span className="text-[#7EE787] sm:hidden">dev-log</span>
               <span className="text-[#8B949E]">:</span>
               <span className="text-[#79C0FF]">~</span>
               <span className="text-[#8B949E]">$ </span>
-              <span className="text-[#E6EDF3]">{log.command}</span>
+              <span className="text-[#E6EDF3] break-all">{log.command}</span>
             </div>
-            {log.output}
+            <div className="min-w-0 break-words">{log.output}</div>
           </div>
         ))}
 
         {/* Input prompt line */}
-        <form onSubmit={onSubmit} className="flex items-center gap-1 pt-1">
-          <span className="text-[#7EE787] whitespace-nowrap">pancayandra@dev-log</span>
-          <span className="text-[#8B949E]">:</span>
-          <span className="text-[#79C0FF]">~</span>
-          <span className="text-[#8B949E]">$ </span>
+        <form onSubmit={onSubmit} className="flex items-center gap-1 pt-1 min-w-0 w-full">
+          <span className="text-[#7EE787] shrink-0 hidden sm:inline">pancayandra@dev-log</span>
+          <span className="text-[#7EE787] shrink-0 sm:hidden">dev-log</span>
+          <span className="text-[#8B949E] shrink-0">:</span>
+          <span className="text-[#79C0FF] shrink-0">~</span>
+          <span className="text-[#8B949E] shrink-0">$ </span>
           <input
             ref={inputRef}
             type="text"
@@ -246,12 +250,12 @@ export function TerminalCard() {
             aria-label="Terminal command input"
             autoComplete="off"
             spellCheck="false"
-            className="flex-1 bg-transparent text-[#E6EDF3] outline-none border-none p-0 focus:ring-0 font-mono text-xs sm:text-sm"
+            className="min-w-0 flex-1 bg-transparent text-[#E6EDF3] outline-none border-none p-0 focus:ring-0 font-mono text-xs sm:text-sm"
           />
           <button
             type="submit"
             aria-label="Run command"
-            className="text-[#8B949E] hover:text-[#7EE787] transition-colors p-1"
+            className="text-[#8B949E] hover:text-[#7EE787] transition-colors p-1 shrink-0"
           >
             <CornerDownLeft className="h-3.5 w-3.5" />
           </button>
@@ -260,7 +264,7 @@ export function TerminalCard() {
       </div>
 
       {/* Predefined Command Shortcuts */}
-      <div className="flex items-center gap-1.5 overflow-x-auto border-t border-[#21262D] bg-[#161B22]/70 px-3 py-2 text-[11px] text-[#8B949E]">
+      <div className="flex items-center gap-1.5 overflow-x-auto border-t border-[#21262D] bg-[#161B22]/70 px-3 py-2 text-[11px] text-[#8B949E] max-w-full">
         <span className="text-[#79C0FF] shrink-0">Quick run:</span>
         {PREDEFINED_COMMANDS.map((cmd) => (
           <button

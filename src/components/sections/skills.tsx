@@ -60,7 +60,7 @@ export function SkillsSection() {
             ))}
           </div>
 
-          <div className="mt-8 rounded-lg border border-border bg-elevated/50 p-4 text-xs font-mono text-secondary-text flex items-center justify-between flex-wrap gap-2">
+          <div className="mt-8 rounded-lg border border-border bg-elevated/50 p-3 sm:p-4 text-[11px] sm:text-xs font-mono text-secondary-text flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
             <span>{"// VERIFIED SKILLS ONLY"}</span>
             <span>NO ARBITRARY PERCENTAGES OR PROGRESS BARS</span>
           </div>
