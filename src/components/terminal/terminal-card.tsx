@@ -60,7 +60,7 @@ export function TerminalCard() {
   const [history, setHistory] = React.useState<string[]>([]);
   const [historyIndex, setHistoryIndex] = React.useState<number>(-1);
   const { resolvedTheme, setTheme } = useTheme();
-  const terminalEndRef = React.useRef<HTMLDivElement>(null);
+  const terminalLogsRef = React.useRef<HTMLDivElement>(null);
   const inputRef = React.useRef<HTMLInputElement>(null);
 
   const handleCommand = (cmdText: string) => {
@@ -195,7 +195,9 @@ export function TerminalCard() {
   };
 
   React.useEffect(() => {
-    terminalEndRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    if (terminalLogsRef.current) {
+      terminalLogsRef.current.scrollTop = terminalLogsRef.current.scrollHeight;
+    }
   }, [logs]);
 
   return (
@@ -219,7 +221,10 @@ export function TerminalCard() {
       </div>
 
       {/* Terminal Logs View */}
-      <div className="max-h-[300px] sm:max-h-[340px] overflow-y-auto p-3.5 sm:p-5 space-y-3 leading-relaxed break-words">
+      <div
+        ref={terminalLogsRef}
+        className="max-h-[300px] sm:max-h-[340px] overflow-y-auto p-3.5 sm:p-5 space-y-3 leading-relaxed break-words"
+      >
         {logs.map((log) => (
           <div key={log.id} className="space-y-1.5 min-w-0">
             <div className="flex flex-wrap items-center gap-1 min-w-0">
@@ -260,7 +265,6 @@ export function TerminalCard() {
             <CornerDownLeft className="h-3.5 w-3.5" />
           </button>
         </form>
-        <div ref={terminalEndRef} />
       </div>
 
       {/* Predefined Command Shortcuts */}

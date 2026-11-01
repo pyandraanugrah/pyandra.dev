@@ -11,9 +11,9 @@ export function HeroSection() {
     <section className="relative overflow-hidden pt-12 pb-20 sm:pt-20 sm:pb-28">
       <Container>
         <SectionReveal>
-          <div className="grid items-center gap-8 lg:grid-cols-12 lg:gap-8">
+          <div className="grid items-center gap-8 lg:grid-cols-12 lg:gap-8 w-full min-w-0">
             {/* Left Column: Hero Content */}
-            <div className="flex flex-col items-start gap-5 sm:gap-6 lg:col-span-7">
+            <div className="flex flex-col items-start gap-5 sm:gap-6 lg:col-span-7 w-full min-w-0">
               <div className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-3 py-1 font-mono text-xs text-secondary-text shadow-sm max-w-full">
                 <span className="h-2 w-2 rounded-full bg-accent animate-pulse shrink-0" />
                 <span className="truncate">AVAILABLE FOR OPPORTUNITIES</span>
@@ -67,7 +67,7 @@ export function HeroSection() {
             </div>
 
             {/* Right Column: Terminal Preview */}
-            <div className="w-full lg:col-span-5">
+            <div className="w-full min-w-0 lg:col-span-5">
               <TerminalCard />
             </div>
           </div>
